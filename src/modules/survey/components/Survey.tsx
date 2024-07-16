@@ -18,12 +18,12 @@ export const Survey = () => {
     const currentStep = Math.trunc(progress / stepProgressDelta);
     if (currentStep > activeStep.current) {
       activeStep.current = currentStep;
+      console.log({ currentStep });
       balls.current.forEach((ball, index) => {
-        if (index <= currentStep) {
+        if (index < currentStep) {
           makeBallActive(ball);
         }
       });
-      // alert(`Step number ${currentStep}`);
     }
   };
 
@@ -47,13 +47,14 @@ export const Survey = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // uncomment to have initial scroll
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    balls.current = svgRef.current.querySelectorAll("rect.ball");
+    balls.current = svgRef.current.querySelectorAll("g.ball");
+    console.log("useEffect", { balls: balls.current });
   }, []);
 
   return (

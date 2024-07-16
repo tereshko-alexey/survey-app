@@ -1,26 +1,29 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "../styles.module.css";
 
 import { ReactComponent as PathSvg } from "../assets/path.svg";
 import { makeBallActive } from "../utils";
 
-const stepsCount = 15;
-const stepProgressDelta = 100 / (stepsCount - 1);
+const stepsCount = 12;
+const stepProgressDelta = 80 / (stepsCount - 1);
 
 export const Survey = () => {
   const imgRef = useRef<HTMLImageElement>(null);
   const pathRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<any>(null);
   const balls = useRef<SVGElement[]>([]);
+  const activeStep = useRef(0);
 
   const handleStepChange = (progress: number) => {
     const currentStep = Math.trunc(progress / stepProgressDelta);
-    if (currentStep) {
+    if (currentStep > activeStep.current) {
+      activeStep.current = currentStep;
       balls.current.forEach((ball, index) => {
         if (index <= currentStep) {
           makeBallActive(ball);
         }
       });
+      // alert(`Step number ${currentStep}`);
     }
   };
 
@@ -44,12 +47,13 @@ export const Survey = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    balls.current = svgRef.current.querySelectorAll("rect");
+    balls.current = svgRef.current.querySelectorAll("rect.ball");
   }, []);
 
   return (

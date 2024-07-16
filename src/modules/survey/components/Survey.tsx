@@ -47,7 +47,7 @@ export const Survey = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0); // uncomment to have initial scroll
+    // window.scrollTo(0, 0); // uncomment to have initial scroll
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

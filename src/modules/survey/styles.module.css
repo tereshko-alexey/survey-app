@@ -6,3 +6,9 @@
   background-position: left;
   background-size: cover;
 }
+.image svg {
+  
+  /* transform: scale(0.45); */
+  /* margin-top: -450px; */
+  /* margin-left: -120px; */
+}

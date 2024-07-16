@@ -6,3 +6,7 @@
   background-position: left;
   background-size: cover;
 }
+
+rect:nth-child(3) {
+  fill: #f00;
+}

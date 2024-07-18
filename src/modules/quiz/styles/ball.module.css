@@ -1,3 +1,42 @@
 .ball {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ballBounce {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: ballBounce;
+  animation-timing-function: linear;
+}
+@keyframes ballBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shadowBounce {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: shadowBounce;
+  animation-timing-function: linear;
+}
+@keyframes shadowBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { questions, questionsOptions } from "../constants";
 import styles from "../styles/quiz.module.css";
 import { Ball } from "./Ball";
@@ -13,7 +14,7 @@ export const Quiz = ({ step, onNext, onPrev }: Props) => {
   return (
     <>
       {questions.map((question, index) => (
-        <>
+        <React.Fragment key={question.value}>
           <Ball
             isActive={index === step}
             isComplete={step >= index}
@@ -38,7 +39,7 @@ export const Quiz = ({ step, onNext, onPrev }: Props) => {
               />
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </>
   );

@@ -1,4 +1,4 @@
-import styles from "../styles/question-form.module.css";
+import styles from "../styles/questionForm.module.css";
 
 export const QuestionForm = () => {
   return (

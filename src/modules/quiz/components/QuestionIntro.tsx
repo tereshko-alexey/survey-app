@@ -1,4 +1,4 @@
-import styles from "../styles/question-intro.module.css";
+import styles from "../styles/questionIntro.module.css";
 
 export const QuestionIntro = () => {
   <div className={styles.container}>

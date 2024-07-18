@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "../styles/styles.module.css";
+import styles from "./styles/styles.module.css";
 
-import { ReactComponent as PathSvg } from "../assets/path.svg";
-import { makeBallActive } from "../utils";
-import { Questionnaire } from "./Questionnaire";
-import { QuestionForm } from "./QuestionForm";
+import { ReactComponent as PathSvg } from "./assets/path.svg";
+import { makeBallActive } from "./utils";
+import { Questionnaire } from "../quiz/components/Quiz";
+import { QuestionForm } from "../quiz/components/QuestionForm";
 
 const stepsCount = 12;
 const stepProgressDelta = 80 / (stepsCount - 1);

@@ -1,4 +1,4 @@
-import styles from "../styles/questionnaire.module.css";
+import styles from "../styles/quiz.module.css";
 
 type Props = {
   position: { left: number; top: number };

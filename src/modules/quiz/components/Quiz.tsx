@@ -31,7 +31,7 @@ export const Quiz = ({ step, onNext, onPrev }: Props) => {
                 question={question.value}
                 questionNumber={index + 1}
                 options={questionsOptions[index].value}
-                progress={(step / questions.length) * 100}
+                progress={(step / (questions.length - 1)) * 100}
                 questionsCount={questions.length}
                 onPrev={onPrev}
                 onNext={onNext}

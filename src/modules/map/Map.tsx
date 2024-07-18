@@ -62,7 +62,10 @@ export const Map = () => {
     balls.current = svgRef.current.querySelectorAll("g.ball");
   }, []);
 
-  const onPrev = () => window.scrollTo(0, (step - 1) * yStepScroll);
+  const onPrev = () => {
+    window.scrollTo(0, (step - 1) * yStepScroll);
+    setStep(step - 1);
+  };
 
   const onNext = () => window.scrollTo(0, (step + 1) * yStepScroll);
 

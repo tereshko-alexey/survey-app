@@ -69,10 +69,20 @@ export const Map = () => {
 
   const onNext = () => window.scrollTo(0, (step + 1) * yStepScroll);
 
+  const onBallSelect = (ballNumber: number) => {
+    window.scrollTo(0, ballNumber * yStepScroll);
+    setStep(ballNumber);
+  };
+
   return (
     <div className={styles.sceneContainer}>
       <div ref={imgRef} className={styles.image}>
-        <Quiz step={step} onPrev={onPrev} onNext={onNext} />
+        <Quiz
+          step={step}
+          onPrev={onPrev}
+          onNext={onNext}
+          onBallSelect={onBallSelect}
+        />
         <PathSvg ref={svgRef} />
       </div>
     </div>

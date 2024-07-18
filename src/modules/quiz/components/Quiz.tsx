@@ -8,9 +8,10 @@ type Props = {
   step: number;
   onPrev: () => void;
   onNext: () => void;
+  onBallSelect: (ballNumber: number) => void;
 };
 
-export const Quiz = ({ step, onNext, onPrev }: Props) => {
+export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
   return (
     <>
       {questions.map((question, index) => (
@@ -19,6 +20,7 @@ export const Quiz = ({ step, onNext, onPrev }: Props) => {
             isActive={index === step}
             isComplete={step >= index}
             position={question.ballPosition}
+            onSelect={() => onBallSelect(index)}
           />
           {index === step && (
             <div

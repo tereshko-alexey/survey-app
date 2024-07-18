@@ -1,14 +1,24 @@
+import { questions } from "../constants";
 import styles from "../styles/quiz.module.css";
+import { QuestionForm } from "./QuestionForm";
 
 type Props = {
-  position: { left: number; top: number };
-  children: React.ReactNode;
+  step: number;
 };
 
-export const Questionnaire = ({ position, children }: Props) => {
+export const Quiz = ({ step }: Props) => {
   return (
-    <div className={styles.formContainer} style={position}>
-      {children}
-    </div>
+    <>
+      {questions.map((question, index) => (
+        <div
+          key={question.value}
+          hidden={index !== step}
+          className={styles.formContainer}
+          style={question.mapPosition}
+        >
+          <QuestionForm />
+        </div>
+      ))}
+    </>
   );
 };

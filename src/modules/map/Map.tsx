@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./styles/styles.module.css";
+import styles from "./styles.module.css";
 
 import { ReactComponent as PathSvg } from "./assets/path.svg";
 import { makeBallActive } from "./utils";
-import { Questionnaire } from "../quiz/components/Quiz";
+import { Quiz } from "../quiz/components/Quiz";
 import { QuestionForm } from "../quiz/components/QuestionForm";
+import { questions } from "../quiz/constants";
 
 const stepsCount = 12;
 const stepProgressDelta = 80 / (stepsCount - 1);
@@ -21,7 +22,7 @@ export const Survey = () => {
     const currentStep = Math.trunc(progress / stepProgressDelta);
     if (currentStep > activeStep.current) {
       activeStep.current = currentStep;
-      setStep(step);
+      setStep(currentStep);
       console.log({ currentStep });
       balls.current.forEach((ball, index) => {
         if (index < currentStep) {
@@ -63,14 +64,8 @@ export const Survey = () => {
 
   return (
     <div className={styles.sceneContainer}>
-      <div
-        ref={imgRef}
-        className={styles.image}
-        style={{ transform: "translate(0, 0)" }}
-      >
-        <Questionnaire position={{ left: 1450, top: 200 }}>
-          <QuestionForm />
-        </Questionnaire>
+      <div ref={imgRef} className={styles.image}>
+        <Quiz step={step} />
         <PathSvg ref={svgRef} />
       </div>
     </div>

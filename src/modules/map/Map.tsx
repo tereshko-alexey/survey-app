@@ -4,9 +4,11 @@ import styles from "./styles.module.css";
 import { ReactComponent as PathSvg } from "assets/path.svg";
 import { makeBallActive } from "./utils";
 import { Quiz } from "../quiz/components/Quiz";
+import { questions } from "modules/quiz/constants";
 
-const stepsCount = 12;
-const stepProgressDelta = 80 / (stepsCount - 1);
+const stepsCount = questions.length;
+const stepProgressDelta = 100 / (stepsCount - 1);
+const yStepScroll = 250;
 
 export const Map = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -31,7 +33,6 @@ export const Map = () => {
   };
 
   const handleScroll = () => {
-    console.log("handleScroll");
     const scrollPercent =
       window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
@@ -61,18 +62,9 @@ export const Map = () => {
     balls.current = svgRef.current.querySelectorAll("g.ball");
   }, []);
 
-  const onPrev = () => {
-    window.scrollTo(0, (1 / stepsCount) * (step - 1) * window.innerHeight);
-    const value = (1 / stepsCount) * (step + 1) * window.innerHeight;
-    console.log({ value });
-    setStep(step - 1);
-  };
-  const onNext = () => {
-    window.scrollTo(0, (1 / stepsCount) * (step + 1) * window.innerHeight);
-    const value = (1 / stepsCount) * (step + 1) * window.innerHeight;
-    console.log({ value });
-    setStep(step + 1);
-  };
+  const onPrev = () => window.scrollTo(0, (step - 1) * yStepScroll);
+
+  const onNext = () => window.scrollTo(0, (step + 1) * yStepScroll);
 
   return (
     <div className={styles.sceneContainer}>

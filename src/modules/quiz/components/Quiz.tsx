@@ -19,24 +19,25 @@ export const Quiz = ({ step, onNext, onPrev }: Props) => {
             isComplete={step >= index}
             position={question.ballPosition}
           />
-          <div
-            key={question.value}
-            hidden={index !== step}
-            className={styles.formContainer}
-            style={question.modalPosition}
-          >
-            <QuestionForm
-              sector={question.key}
-              sectorNumber={question.sectorNumber}
-              question={question.value}
-              questionNumber={index + 1}
-              options={questionsOptions[index].value}
-              progress={(step / questions.length) * 100}
-              questionsCount={questions.length}
-              onPrev={onPrev}
-              onNext={onNext}
-            />
-          </div>
+          {index === step && (
+            <div
+              key={question.value}
+              className={styles.formContainer}
+              style={question.modalPosition}
+            >
+              <QuestionForm
+                sector={question.key}
+                sectorNumber={question.sectorNumber}
+                question={question.value}
+                questionNumber={index + 1}
+                options={questionsOptions[index].value}
+                progress={(step / questions.length) * 100}
+                questionsCount={questions.length}
+                onPrev={onPrev}
+                onNext={onNext}
+              />
+            </div>
+          )}
         </>
       ))}
     </>

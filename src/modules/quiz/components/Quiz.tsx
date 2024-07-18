@@ -1,13 +1,15 @@
-import { questions } from "../constants";
+import { questions, questionsOptions } from "../constants";
 import styles from "../styles/quiz.module.css";
 import { Ball } from "./Ball";
 import { QuestionForm } from "./QuestionForm";
 
 type Props = {
   step: number;
+  onPrev: () => void;
+  onNext: () => void;
 };
 
-export const Quiz = ({ step }: Props) => {
+export const Quiz = ({ step, onNext, onPrev }: Props) => {
   return (
     <>
       {questions.map((question, index) => (
@@ -23,7 +25,17 @@ export const Quiz = ({ step }: Props) => {
             className={styles.formContainer}
             style={question.modalPosition}
           >
-            <QuestionForm />
+            <QuestionForm
+              sector={question.key}
+              sectorNumber={question.sectorNumber}
+              question={question.value}
+              questionNumber={index + 1}
+              options={questionsOptions[index].value}
+              progress={(step / questions.length) * 100}
+              questionsCount={questions.length}
+              onPrev={onPrev}
+              onNext={onNext}
+            />
           </div>
         </>
       ))}

@@ -31,6 +31,7 @@ export const Map = () => {
   };
 
   const handleScroll = () => {
+    console.log("handleScroll");
     const scrollPercent =
       window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
@@ -60,10 +61,23 @@ export const Map = () => {
     balls.current = svgRef.current.querySelectorAll("g.ball");
   }, []);
 
+  const onPrev = () => {
+    window.scrollTo(0, (1 / stepsCount) * (step - 1) * window.innerHeight);
+    const value = (1 / stepsCount) * (step + 1) * window.innerHeight;
+    console.log({ value });
+    setStep(step - 1);
+  };
+  const onNext = () => {
+    window.scrollTo(0, (1 / stepsCount) * (step + 1) * window.innerHeight);
+    const value = (1 / stepsCount) * (step + 1) * window.innerHeight;
+    console.log({ value });
+    setStep(step + 1);
+  };
+
   return (
     <div className={styles.sceneContainer}>
       <div ref={imgRef} className={styles.image}>
-        <Quiz step={step} />
+        <Quiz step={step} onPrev={onPrev} onNext={onNext} />
         <PathSvg ref={svgRef} />
       </div>
     </div>

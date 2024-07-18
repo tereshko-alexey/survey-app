@@ -1,30 +1,50 @@
 import styles from "../styles/questionForm.module.css";
 
-export const QuestionForm = () => {
+type Props = {
+  sector: string;
+  sectorNumber: string;
+  question: string;
+  questionNumber: number;
+  options: string[];
+  progress: number;
+  questionsCount: number;
+  onNext: () => void;
+  onPrev: () => void;
+};
+
+export const QuestionForm = ({
+  sector,
+  sectorNumber,
+  question,
+  questionNumber,
+  options,
+  progress,
+  questionsCount,
+  onNext,
+  onPrev,
+}: Props) => {
   return (
     <div>
       <div className={styles.formHeader}>
-        <h1>SECTOR 1. GENERAL</h1>
+        <div className={styles.headerSector}>
+          <span className={styles.formHeaderSectorName}>
+            SECTOR {sectorNumber}. {sector.toUpperCase()}
+          </span>
+          <span className={styles.numberOf}>
+            {questionNumber}/{questionsCount}
+          </span>
+        </div>
+
         <div className={styles.progressBar}>
           <div
             className={styles.progressBarInner}
-            style={{ width: "6.66%" }}
+            style={{ width: `${progress}%` }}
           ></div>
         </div>
-        <h2>What industry does your organization operate in?</h2>
+        <h2>{question}</h2>
       </div>
       <form className={styles.industryForm}>
-        {[
-          "Retail",
-          "XaaS (Anything-as-a-Service)",
-          "Hardware",
-          "Healthcare",
-          "Financial Services",
-          "Manufacturing",
-          "Education",
-          "Government",
-          "Telecommunications",
-        ].map((industry, index) => (
+        {options.map((industry, index) => (
           <div key={index} className={styles.formCheck}>
             <input type="checkbox" id={industry} name={industry} />
             <label htmlFor={industry}>{industry}</label>
@@ -32,8 +52,12 @@ export const QuestionForm = () => {
         ))}
       </form>
       <div className={styles.formFooter}>
-        <button className={styles.btnPrev}>Previous</button>
-        <button className={styles.btnNext}>Next</button>
+        <button className={styles.btnPrev} onClick={onPrev}>
+          Previous
+        </button>
+        <button className={styles.btnNext} onClick={onNext}>
+          Next
+        </button>
       </div>
     </div>
   );

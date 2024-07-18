@@ -2,7 +2,14 @@
   text-align: left;
 }
 
-.formHeader h1 {
+.headerSector {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.formHeaderSectorName {
   color: #ff3b30; /* Red color to match the design */
   font-size: 24px;
 }

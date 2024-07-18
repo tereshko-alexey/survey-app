@@ -6,24 +6,28 @@ const QUESTION_DEPARTMENT_ROLE =
 export const questions = [
   {
     key: "General",
+    sectorNumber: "1",
     value: QUESTION_INDUSTRY,
     ballPosition: { left: 2150, top: 400 },
     modalPosition: { left: 1450, top: 200 },
   },
   {
     key: "General",
+    sectorNumber: "1",
     value: QUESTION_ORGANIZATION_SIZE,
     ballPosition: { left: 1700, top: 460 },
     modalPosition: { left: 1000, top: 200 },
   },
   {
     key: "General",
+    sectorNumber: "1",
     value: QUESTION_DEPARTMENT_ROLE,
     ballPosition: { left: 1200, top: 540 },
     modalPosition: { left: 500, top: 250 },
   },
   {
     key: "Strategy and Commitment",
+    sectorNumber: "2",
     value:
       "How well is your digital strategy integrated with your overall business strategy?",
     ballPosition: { left: 600, top: 650 },
@@ -31,6 +35,7 @@ export const questions = [
   },
   {
     key: "Strategy and Commitment",
+    sectorNumber: "2",
     value:
       "How effectively does your organization manage innovation as part of its strategic objectives?",
     ballPosition: { left: 300, top: 950 },
@@ -38,6 +43,7 @@ export const questions = [
   },
   {
     key: "Customer Engagement and Experience",
+    sectorNumber: "2",
     value:
       "How effectively does your organization utilize customer data to enhance engagement and personalize experiences?",
     ballPosition: { left: 850, top: 1110 },
@@ -45,6 +51,7 @@ export const questions = [
   },
   {
     key: "Customer Engagement and Experience",
+    sectorNumber: "2",
     value:
       "How integrated are your digital channels in providing a seamless omnichannel experience for customers?",
     ballPosition: { left: 1550, top: 1080 },
@@ -52,6 +59,7 @@ export const questions = [
   },
   {
     key: "Technology",
+    sectorNumber: "3",
     value:
       "How effectively does your organization integrate and utilize emerging technologies (e.g., AI, IoT, blockchain) in its operations?",
     ballPosition: { left: 2050, top: 1080 },
@@ -59,6 +67,7 @@ export const questions = [
   },
   {
     key: "Technology",
+    sectorNumber: "3",
     value:
       "How robust are your cybersecurity measures to protect organizational data and maintain stakeholder trust?",
     ballPosition: { left: 2450, top: 1150 },
@@ -66,6 +75,7 @@ export const questions = [
   },
   {
     key: "Operations",
+    sectorNumber: "4",
     value:
       "How effectively does your organization utilize automation in its operational processes?",
     ballPosition: { left: 2670, top: 1430 },
@@ -73,6 +83,7 @@ export const questions = [
   },
   {
     key: "Operations",
+    sectorNumber: "4",
     value:
       "How does your organization leverage real-time data analytics to enhance operational decision-making?",
     ballPosition: { left: 2400, top: 1590 },
@@ -80,6 +91,7 @@ export const questions = [
   },
   {
     key: "Organization and Culture",
+    sectorNumber: "5",
     value:
       "How effectively does your organization's leadership drive and support digital transformation initiatives?",
     ballPosition: { left: 2160, top: 1650 },
@@ -87,6 +99,7 @@ export const questions = [
   },
   {
     key: "Organization and Culture",
+    sectorNumber: "5",
     value:
       "How would you describe the culture of innovation within your organization?",
     ballPosition: { left: 1960, top: 1710 },

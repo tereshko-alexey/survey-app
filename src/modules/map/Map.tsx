@@ -8,7 +8,7 @@ import { questions } from "modules/quiz/constants";
 
 const stepsCount = questions.length;
 const stepProgressDelta = 100 / (stepsCount - 1);
-const yStepScroll = 250;
+const yStepScroll = 280;
 
 export const Map = () => {
   const imgRef = useRef<HTMLImageElement>(null);

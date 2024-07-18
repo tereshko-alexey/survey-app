@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 
-import { ReactComponent as PathSvg } from "./assets/path.svg";
+import { ReactComponent as PathSvg } from "assets/path.svg";
 import { makeBallActive } from "./utils";
 import { Quiz } from "../quiz/components/Quiz";
-import { QuestionForm } from "../quiz/components/QuestionForm";
-import { questions } from "../quiz/constants";
 
 const stepsCount = 12;
 const stepProgressDelta = 80 / (stepsCount - 1);
 
-export const Survey = () => {
+export const Map = () => {
   const imgRef = useRef<HTMLImageElement>(null);
   const pathRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<any>(null);

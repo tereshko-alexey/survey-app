@@ -1,8 +1,8 @@
 import "./App.css";
-import { Survey } from "./modules/map/Map";
+import { Map } from "./modules/map/Map";
 
 function App() {
-  return <Survey />;
+  return <Map />;
 }
 
 export default App;

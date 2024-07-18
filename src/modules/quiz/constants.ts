@@ -7,77 +7,90 @@ export const questions = [
   {
     key: "General",
     value: QUESTION_INDUSTRY,
-    mapPosition: { left: 1450, top: 200 },
+    ballPosition: { left: 2150, top: 400 },
+    modalPosition: { left: 1450, top: 200 },
   },
   {
     key: "General",
     value: QUESTION_ORGANIZATION_SIZE,
-    mapPosition: { left: 1000, top: 200 },
+    ballPosition: { left: 1700, top: 460 },
+    modalPosition: { left: 1000, top: 200 },
   },
   {
     key: "General",
     value: QUESTION_DEPARTMENT_ROLE,
-    mapPosition: { left: 500, top: 250 },
+    ballPosition: { left: 1200, top: 540 },
+    modalPosition: { left: 500, top: 250 },
   },
   {
     key: "Strategy and Commitment",
     value:
       "How well is your digital strategy integrated with your overall business strategy?",
-    mapPosition: { left: 690, top: 450 },
+    ballPosition: { left: 600, top: 650 },
+    modalPosition: { left: 690, top: 450 },
   },
   {
     key: "Strategy and Commitment",
     value:
       "How effectively does your organization manage innovation as part of its strategic objectives?",
-    mapPosition: { left: 390, top: 750 },
+    ballPosition: { left: 300, top: 950 },
+    modalPosition: { left: 390, top: 750 },
   },
   {
     key: "Customer Engagement and Experience",
     value:
       "How effectively does your organization utilize customer data to enhance engagement and personalize experiences?",
-    mapPosition: { left: 930, top: 750 },
+    ballPosition: { left: 850, top: 1110 },
+    modalPosition: { left: 930, top: 750 },
   },
   {
     key: "Customer Engagement and Experience",
     value:
       "How integrated are your digital channels in providing a seamless omnichannel experience for customers?",
-    mapPosition: { left: 1620, top: 750 },
+    ballPosition: { left: 1550, top: 1080 },
+    modalPosition: { left: 1620, top: 750 },
   },
   {
     key: "Technology",
     value:
       "How effectively does your organization integrate and utilize emerging technologies (e.g., AI, IoT, blockchain) in its operations?",
-    mapPosition: { left: 1350, top: 750 },
+    ballPosition: { left: 2050, top: 1080 },
+    modalPosition: { left: 1350, top: 750 },
   },
   {
     key: "Technology",
     value:
       "How robust are your cybersecurity measures to protect organizational data and maintain stakeholder trust?",
-    mapPosition: { left: 2130, top: 800 },
+    ballPosition: { left: 2450, top: 1150 },
+    modalPosition: { left: 2130, top: 800 },
   },
   {
     key: "Operations",
     value:
       "How effectively does your organization utilize automation in its operational processes?",
-    mapPosition: { left: 1750, top: 1000 },
+    ballPosition: { left: 2670, top: 1430 },
+    modalPosition: { left: 1750, top: 1000 },
   },
   {
     key: "Operations",
     value:
       "How does your organization leverage real-time data analytics to enhance operational decision-making?",
-    mapPosition: { left: 1950, top: 1100 },
+    ballPosition: { left: 2400, top: 1590 },
+    modalPosition: { left: 1950, top: 1100 },
   },
   {
     key: "Organization and Culture",
     value:
       "How effectively does your organization's leadership drive and support digital transformation initiatives?",
-    mapPosition: { left: 2100, top: 1050 },
+    ballPosition: { left: 2160, top: 1650 },
+    modalPosition: { left: 2100, top: 1050 },
   },
   {
     key: "Organization and Culture",
     value:
       "How would you describe the culture of innovation within your organization?",
-    mapPosition: { left: 1600, top: 1190 },
+    ballPosition: { left: 1960, top: 1710 },
+    modalPosition: { left: 1600, top: 1190 },
   },
 ];
 

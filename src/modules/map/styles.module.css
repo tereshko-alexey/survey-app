@@ -2,7 +2,7 @@
   width: 200vw;
   height: 200vh;
   margin-left: -50%;
-  background-image: url("./assets/map.webp");
+  background-image: url("assets/map.webp");
   background-position: left;
   background-size: cover;
   transform: translate(0, 0);

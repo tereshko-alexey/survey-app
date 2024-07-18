@@ -1,0 +1,61 @@
+.formHeader {
+  text-align: left;
+}
+
+.formHeader h1 {
+  color: #ff3b30; /* Red color to match the design */
+  font-size: 24px;
+}
+
+.progressBar {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 5px;
+  margin: 10px 0;
+}
+
+.progressBarInner {
+  background-color: #ff3b30; /* Red color to match the design */
+  height: 100%;
+}
+
+.formHeader h2 {
+  font-size: 18px;
+}
+
+.industryForm {
+  margin-top: 20px;
+}
+
+.formCheck {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.formCheck input {
+  margin-right: 10px;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btnPrev,
+.btnNext {
+  background-color: #ff3b30; /* Red color to match the design */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btnPrev {
+  background-color: #000; /* Black color for the previous button */
+}
+
+.btnNext {
+  background-color: #ff3b30; /* Red color for the next button */
+}

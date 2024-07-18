@@ -1,0 +1,9 @@
+.formContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  padding: 40px;
+  position: absolute;
+}

@@ -41,8 +41,6 @@ export const Quiz = ({
     (response) => response.question === questions[step]?.value
   );
 
-  console.log({ step });
-
   return (
     <>
       {questions.map((question, index) => {

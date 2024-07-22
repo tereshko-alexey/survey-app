@@ -1,17 +1,40 @@
+import { useContext, useState } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
-import { useContext } from "react";
 import { AssessmentProgressContext } from "contexts/AssessmentProgressContext";
+import { ReactComponent as CrossIconSvg } from "assets/cross.svg";
 
 const cx = classNames.bind(styles);
 
 const Assessment = () => {
   const { maturity } = useContext(AssessmentProgressContext);
+  const [collapsed, setCollapsed] = useState(false);
 
-  console.log({ maturity });
+  const onCollapse = () => {
+    console.log("Close assessment");
+    setCollapsed(true);
+  };
+
+  const onExpand = () => {
+    setCollapsed(false);
+  };
+
+  if (collapsed) {
+    return (
+      <div
+        className={cx([styles.assessment, styles.expandButton])}
+        onClick={onExpand}
+      >
+        <p>{`>`}</p>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.assessment}>
+      <div className={styles.crossButton} onClick={onCollapse}>
+        <CrossIconSvg />
+      </div>
       <div className={styles.header}>
         <h1>You're on this stage now.</h1>
         <p>

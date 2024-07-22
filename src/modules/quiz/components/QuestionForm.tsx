@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import styles from "../styles/questionForm.module.css";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   options: string[];
   progress: number;
   questionsCount: number;
-  onNext: () => void;
+  onNext: (answer: { [key: string]: string[] }) => void;
   onPrev: () => void;
 };
 
@@ -23,6 +24,15 @@ export const QuestionForm = ({
   onNext,
   onPrev,
 }: Props) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const entries = [...formData.entries()];
+    const result = { [question]: entries.map(([answer]) => answer) };
+
+    onNext(result);
+  };
+
   return (
     <div>
       <div className={styles.formHeader}>
@@ -43,22 +53,20 @@ export const QuestionForm = ({
         </div>
         <h2>{question}</h2>
       </div>
-      <form className={styles.industryForm}>
+      <form className={styles.industryForm} onSubmit={onSubmit}>
         {options.map((industry, index) => (
           <div key={index} className={styles.formCheck}>
             <input type="checkbox" id={industry} name={industry} />
             <label htmlFor={industry}>{industry}</label>
           </div>
         ))}
+        <div className={styles.formFooter}>
+          <button type="button" className={styles.btnPrev} onClick={onPrev}>
+            Previous
+          </button>
+          <button className={styles.btnNext}>Next</button>
+        </div>
       </form>
-      <div className={styles.formFooter}>
-        <button className={styles.btnPrev} onClick={onPrev}>
-          Previous
-        </button>
-        <button className={styles.btnNext} onClick={onNext}>
-          Next
-        </button>
-      </div>
     </div>
   );
 };

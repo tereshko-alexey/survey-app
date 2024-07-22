@@ -12,6 +12,17 @@ type Props = {
 };
 
 export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
+  const [quizResponses, setQuizResponses] = React.useState<{
+    [key: string]: string[];
+  }>({});
+
+  const onSubmitAnswer = (answer: { [key: string]: string[] }) => {
+    setQuizResponses((prev) => ({ ...prev, ...answer }));
+    onNext();
+  };
+
+  console.log({ quizResponses });
+
   return (
     <>
       {questions.map((question, index) => (
@@ -37,7 +48,7 @@ export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
                 progress={(step / (questions.length - 1)) * 100}
                 questionsCount={questions.length}
                 onPrev={onPrev}
-                onNext={onNext}
+                onNext={onSubmitAnswer}
               />
             </div>
           )}

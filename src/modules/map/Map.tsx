@@ -17,6 +17,7 @@ export const Map = () => {
   const balls = useRef<SVGElement[]>([]);
   const activeStep = useRef(0);
   const [step, setStep] = useState(0);
+  
 
   const handleStepChange = (progress: number) => {
     const currentStep = Math.trunc(progress / stepProgressDelta);
@@ -67,7 +68,9 @@ export const Map = () => {
     setStep(step - 1);
   };
 
-  const onNext = () => window.scrollTo(0, (step + 1) * yStepScroll);
+  const onNext = () => {
+    window.scrollTo(0, (step + 1) * yStepScroll)
+  };
 
   const onBallSelect = (ballNumber: number) => {
     window.scrollTo(0, ballNumber * yStepScroll);

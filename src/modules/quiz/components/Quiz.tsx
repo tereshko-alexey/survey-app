@@ -3,6 +3,8 @@ import { questions, questionsOptions } from "../constants";
 import styles from "../styles/quiz.module.css";
 import { Ball } from "./Ball";
 import { QuestionForm } from "./QuestionForm";
+// import api from "api";
+import { QuestionsAnswer } from "types/quiz";
 
 type Props = {
   step: number;
@@ -12,16 +14,25 @@ type Props = {
 };
 
 export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
-  const [quizResponses, setQuizResponses] = React.useState<{
-    [key: string]: string[];
-  }>({});
+  const [quizResponses, setQuizResponses] = React.useState<QuestionsAnswer[]>(
+    []
+  );
 
-  const onSubmitAnswer = (answer: { [key: string]: string[] }) => {
-    setQuizResponses((prev) => ({ ...prev, ...answer }));
+  const onSubmitAnswer = (answer: QuestionsAnswer) => {
+    const prevResponses = quizResponses.filter(
+      (responses) => responses.question !== answer.question
+    );
+    const updatedResponses = [...prevResponses, answer];
+    setQuizResponses(updatedResponses);
+    // api.calculateScore(updatedResponses);
     onNext();
   };
 
-  console.log({ quizResponses });
+  const currentResponse = quizResponses.find(
+    (response) => response.question === questions[step].value
+  );
+
+  console.log({ currentResponse });
 
   return (
     <>
@@ -49,6 +60,7 @@ export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
                 questionsCount={questions.length}
                 onPrev={onPrev}
                 onNext={onSubmitAnswer}
+                currentResponse={currentResponse}
               />
             </div>
           )}

@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import styles from "../styles/questionForm.module.css";
+import { QuestionsAnswer } from "types/quiz";
 
 type Props = {
   sector: string;
@@ -9,7 +10,8 @@ type Props = {
   options: string[];
   progress: number;
   questionsCount: number;
-  onNext: (answer: { [key: string]: string[] }) => void;
+  currentResponse: QuestionsAnswer | undefined;
+  onNext: (answer: QuestionsAnswer) => void;
   onPrev: () => void;
 };
 
@@ -21,14 +23,18 @@ export const QuestionForm = ({
   options,
   progress,
   questionsCount,
+  currentResponse,
   onNext,
   onPrev,
 }: Props) => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const entries = [...formData.entries()];
-    const result = { [question]: entries.map(([answer]) => answer) };
+
+    const result: QuestionsAnswer = {
+      question,
+      answer: formData.get(question) as string,
+    };
 
     onNext(result);
   };
@@ -53,11 +59,17 @@ export const QuestionForm = ({
         </div>
         <h2>{question}</h2>
       </div>
-      <form className={styles.industryForm} onSubmit={onSubmit}>
-        {options.map((industry, index) => (
+      <form className={styles.optionsForm} onSubmit={onSubmit}>
+        {options.map((option, index) => (
           <div key={index} className={styles.formCheck}>
-            <input type="checkbox" id={industry} name={industry} />
-            <label htmlFor={industry}>{industry}</label>
+            <input
+              type="radio"
+              id={option}
+              name={question}
+              value={option}
+              defaultChecked={currentResponse && !!currentResponse.answer}
+            />
+            <label htmlFor={option}>{option}</label>
           </div>
         ))}
         <div className={styles.formFooter}>

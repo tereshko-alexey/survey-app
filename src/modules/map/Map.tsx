@@ -71,6 +71,10 @@ export const Map = () => {
     setStep(step + 1);
   };
 
+  const onClose = () => {
+    setStep(-1);
+  };
+
   const onBallSelect = (ballNumber: number) => {
     window.scrollTo(0, ballNumber * yStepScroll);
     setStep(ballNumber);
@@ -83,6 +87,7 @@ export const Map = () => {
           step={step}
           onPrev={onPrev}
           onNext={onNext}
+          onClose={onClose}
           onBallSelect={onBallSelect}
         />
         <PathSvg ref={svgRef} />

@@ -6,18 +6,18 @@ import classNames from "classnames";
 
 type Props = {
   isActive: boolean;
-  isComplete: boolean;
+  isCompleted: boolean;
   position: { left: number; top: number };
   onSelect: () => void;
 };
 
 const cx = classNames.bind(styles);
 
-export const Ball = ({ position, isComplete, isActive, onSelect }: Props) => {
+export const Ball = ({ position, isCompleted, isActive, onSelect }: Props) => {
   return (
     <div className={styles.ball} style={position} onClick={onSelect}>
       <div className={cx([{ [styles.ballBounce]: isActive }])}>
-        {isComplete ? <BallActiveSvg /> : <BallSvg />}
+        {isCompleted || isActive ? <BallActiveSvg /> : <BallSvg />}
       </div>
       <div className={cx([{ [styles.shadowBounce]: isActive }])}>
         <BallShadowSvg />

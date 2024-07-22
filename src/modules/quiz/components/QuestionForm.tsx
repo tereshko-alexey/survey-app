@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import styles from "../styles/questionForm.module.css";
+import { ReactComponent as CrossIconSvg } from "assets/cross.svg";
 import { QuestionsAnswer } from "types/quiz";
 
 type Props = {
@@ -11,8 +12,9 @@ type Props = {
   progress: number;
   questionsCount: number;
   currentResponse: QuestionsAnswer | undefined;
-  onNext: (answer: QuestionsAnswer) => void;
+  onNext: (answer?: QuestionsAnswer) => void;
   onPrev: () => void;
+  onClose: () => void;
 };
 
 export const QuestionForm = ({
@@ -26,14 +28,18 @@ export const QuestionForm = ({
   currentResponse,
   onNext,
   onPrev,
+  onClose,
 }: Props) => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
+    const answer = formData.get(question) as string;
+
+    if (!answer) return onNext();
 
     const result: QuestionsAnswer = {
       question,
-      answer: formData.get(question) as string,
+      answer,
     };
 
     onNext(result);
@@ -58,6 +64,9 @@ export const QuestionForm = ({
           ></div>
         </div>
         <h2>{question}</h2>
+        <div className={styles.crossButton} onClick={onClose}>
+          <CrossIconSvg />
+        </div>
       </div>
       <form className={styles.optionsForm} onSubmit={onSubmit}>
         {options.map((option, index) => (

@@ -9,21 +9,21 @@ export const questions = [
     sectorNumber: "1",
     value: QUESTION_INDUSTRY,
     ballPosition: { left: 2150, top: 400 },
-    modalPosition: { left: 1450, top: 200 },
+    modalPosition: { left: 1550, top: 200 },
   },
   {
     key: "General",
     sectorNumber: "1",
     value: QUESTION_ORGANIZATION_SIZE,
     ballPosition: { left: 1700, top: 460 },
-    modalPosition: { left: 1000, top: 200 },
+    modalPosition: { left: 1100, top: 200 },
   },
   {
     key: "General",
     sectorNumber: "1",
     value: QUESTION_DEPARTMENT_ROLE,
     ballPosition: { left: 1200, top: 540 },
-    modalPosition: { left: 500, top: 250 },
+    modalPosition: { left: 600, top: 250 },
   },
   {
     key: "Strategy and Commitment",
@@ -62,8 +62,8 @@ export const questions = [
     sectorNumber: "3",
     value:
       "How effectively does your organization integrate and utilize emerging technologies (e.g., AI, IoT, blockchain) in its operations?",
-    ballPosition: { left: 2050, top: 1080 },
-    modalPosition: { left: 1350, top: 750 },
+    ballPosition: { left: 2150, top: 1080 },
+    modalPosition: { left: 1550, top: 750 },
   },
   {
     key: "Technology",
@@ -71,7 +71,7 @@ export const questions = [
     value:
       "How robust are your cybersecurity measures to protect organizational data and maintain stakeholder trust?",
     ballPosition: { left: 2450, top: 1150 },
-    modalPosition: { left: 2130, top: 800 },
+    modalPosition: { left: 2530, top: 700 },
   },
   {
     key: "Operations",
@@ -79,7 +79,7 @@ export const questions = [
     value:
       "How effectively does your organization utilize automation in its operational processes?",
     ballPosition: { left: 2670, top: 1430 },
-    modalPosition: { left: 1750, top: 1000 },
+    modalPosition: { left: 2050, top: 1000 },
   },
   {
     key: "Operations",
@@ -87,7 +87,7 @@ export const questions = [
     value:
       "How does your organization leverage real-time data analytics to enhance operational decision-making?",
     ballPosition: { left: 2400, top: 1590 },
-    modalPosition: { left: 1950, top: 1100 },
+    modalPosition: { left: 1950, top: 1000 },
   },
   {
     key: "Organization and Culture",
@@ -103,7 +103,7 @@ export const questions = [
     value:
       "How would you describe the culture of innovation within your organization?",
     ballPosition: { left: 1960, top: 1710 },
-    modalPosition: { left: 1600, top: 1190 },
+    modalPosition: { left: 1600, top: 1090 },
   },
 ];
 

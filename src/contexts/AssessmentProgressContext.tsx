@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useAssessmentProgress } from "./useAssessmentProgress";
+import { initialMaturity } from "./constants";
 
 type AssessmentProgress = ReturnType<typeof useAssessmentProgress>;
 
@@ -9,6 +10,8 @@ const initialValue = {
   setStep: () => {},
   quizResponses: [],
   setQuizResponses: () => {},
+  maturity: initialMaturity,
+  setMaturity: () => {},
 };
 
 export const AssessmentProgressContext =

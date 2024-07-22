@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 
 import { ReactComponent as PathSvg } from "assets/path.svg";

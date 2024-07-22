@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const Quiz = ({ onNext, onPrev, onClose, onBallSelect }: Props) => {
-  const { step, quizResponses, setQuizResponses } = useContext(
+  const { step, quizResponses, setQuizResponses, setMaturity } = useContext(
     AssessmentProgressContext
   );
 
@@ -27,7 +27,11 @@ export const Quiz = ({ onNext, onPrev, onClose, onBallSelect }: Props) => {
     );
     const updatedResponses = [...prevResponses, answer];
     setQuizResponses(updatedResponses);
-    api.calculateScore(updatedResponses);
+    api
+      .calculateScore(updatedResponses)
+      .then((maturity) => setMaturity(maturity))
+      .catch((e) => console.error(e));
+
     onNext();
   };
 

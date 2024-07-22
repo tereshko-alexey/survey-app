@@ -1,28 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { questions, questionsOptions } from "../constants";
 import styles from "../styles/quiz.module.css";
 import { Ball } from "./Ball";
 import { QuestionForm } from "./QuestionForm";
-// import api from "api";
+import api from "api";
 import { QuestionsAnswer } from "types/quiz";
+import { AssessmentProgressContext } from "contexts/AssessmentProgressContext";
 
 type Props = {
-  step: number;
   onPrev: () => void;
   onNext: () => void;
   onClose: () => void;
   onBallSelect: (ballNumber: number) => void;
 };
 
-export const Quiz = ({
-  step,
-  onNext,
-  onPrev,
-  onClose,
-  onBallSelect,
-}: Props) => {
-  const [quizResponses, setQuizResponses] = React.useState<QuestionsAnswer[]>(
-    []
+export const Quiz = ({ onNext, onPrev, onClose, onBallSelect }: Props) => {
+  const { step, quizResponses, setQuizResponses } = useContext(
+    AssessmentProgressContext
   );
 
   const onSubmitAnswer = (answer?: QuestionsAnswer) => {
@@ -33,7 +27,7 @@ export const Quiz = ({
     );
     const updatedResponses = [...prevResponses, answer];
     setQuizResponses(updatedResponses);
-    // api.calculateScore(updatedResponses);
+    api.calculateScore(updatedResponses);
     onNext();
   };
 

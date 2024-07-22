@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 
 import { ReactComponent as PathSvg } from "assets/path.svg";
 import { makeBallActive } from "./utils";
 import { Quiz } from "../quiz/components/Quiz";
 import { questions } from "modules/quiz/constants";
+import { AssessmentProgressContext } from "contexts/AssessmentProgressContext";
 
 const stepsCount = questions.length;
 const stepProgressDelta = 100 / (stepsCount - 1);
@@ -16,7 +17,7 @@ export const Map = () => {
   const svgRef = useRef<any>(null);
   const balls = useRef<SVGElement[]>([]);
   const activeStep = useRef(0);
-  const [step, setStep] = useState(0);
+  const { step, setStep } = useContext(AssessmentProgressContext);
 
   const handleStepChange = (progress: number) => {
     const currentStep = Math.trunc(progress / stepProgressDelta);
@@ -84,7 +85,6 @@ export const Map = () => {
     <div className={styles.sceneContainer}>
       <div ref={imgRef} className={styles.image}>
         <Quiz
-          step={step}
           onPrev={onPrev}
           onNext={onNext}
           onClose={onClose}

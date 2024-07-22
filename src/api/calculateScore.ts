@@ -5,8 +5,9 @@ export const calculateScore = async (questionsAnswers: {}) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Functions-Key": process.env.API_KEY || "",
+        "X-Functions-Key": process.env.REACT_APP_API_KEY || "",
       },
+      body: JSON.stringify({ questionsAnswers }),
     }
   );
 

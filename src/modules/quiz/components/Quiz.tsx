@@ -3,7 +3,7 @@ import { questions, questionsOptions } from "../constants";
 import styles from "../styles/quiz.module.css";
 import { Ball } from "./Ball";
 import { QuestionForm } from "./QuestionForm";
-// import api from "api";
+import api from "api";
 import { QuestionsAnswer } from "types/quiz";
 
 type Props = {
@@ -24,7 +24,7 @@ export const Quiz = ({ step, onNext, onPrev, onBallSelect }: Props) => {
     );
     const updatedResponses = [...prevResponses, answer];
     setQuizResponses(updatedResponses);
-    // api.calculateScore(updatedResponses);
+    api.calculateScore(updatedResponses);
     onNext();
   };
 

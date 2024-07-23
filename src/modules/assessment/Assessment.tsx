@@ -78,7 +78,7 @@ const Assessment = () => {
           <p>Organization & Culture</p>
         </div>
       </div>
-      <div className={styles.footer}>
+      <div className={styles.footer} onClick={onCollapse}>
         <button>→ Interesting! Take me to the questions</button>
       </div>
     </div>
